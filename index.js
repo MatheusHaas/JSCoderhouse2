@@ -12,18 +12,20 @@ function descobreValorIMC(peso, alturaConvertida){
 //Utiliza a function
 let imc = descobreValorIMC(peso, alturaConvertida)
 
+let imcConvertido = imc.toFixed(2)
+
 //Calcula e retorna um alerta baseado no valor do IMC
-function descobreCategoria(imc){
-    if (imc <= 18.5){
-        alert("Alerta de magreza! Procure um médico/nutricionista.")
+function descobreCategoria(imcConvertido){
+    if (imcConvertido <= 18.5){
+        alert("IMC é "+ imcConvertido +". Alerta de magreza! Procure um médico/nutricionista.")
     }
-    if (imc > 18.5 && imc <= 24.5){
-        alert("IMC Ok!")
+    if (imcConvertido > 18.5 && imcConvertido <= 24.5){
+        alert("IMC é "+ imcConvertido +". IMC Ok!")
     }
-    if (imc > 24.5){
-        alert("Obesidade! Procure um médico/nutricionista.")
+    if (imcConvertido > 24.5){
+        alert("IMC é "+ imcConvertido +". Obesidade! Procure um médico/nutricionista.")
     }
 }
 
 //Utiliza a function
-descobreCategoria(imc)
+descobreCategoria(imcConvertido)
