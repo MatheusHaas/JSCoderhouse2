@@ -1,34 +1,29 @@
-let peso = prompt("Informe o seu peso em KG")
-let altura = prompt("Informe a sua altura em centímetros")
-let resultado = 0
+//variáveis
+let peso = parseFloat(prompt("Insira o seu peso"))
+let altura = parseInt(prompt("Informa sua altura, em centímetros"))
+let alturaConvertida = altura / 100
 
-var calcularImc = (peso, altura) => {
-    let pesoAlterado = parseFloat(peso)
-    let alturaAlterado = parseFloat(altura)/100
-    resultado = pesoAlterado /(alturaAlterado * alturaAlterado)
+
+//função para obter o valor do IMC
+function descobreValorIMC(peso, alturaConvertida){
+    return peso / (alturaConvertida * alturaConvertida)
 }
 
-function verIMC(resultado){
-    if(resultado < 18.5){
-        return("Seu IMC é "+ resultado.toFixed(2) +". Magreza!, Procure um médico")
+//Utiliza a function
+let imc = descobreValorIMC(peso, alturaConvertida)
+
+//Calcula e retorna um alerta baseado no valor do IMC
+function descobreCategoria(imc){
+    if (imc <= 18.5){
+        alert("Alerta de magreza! Procure um médico/nutricionista.")
     }
-    if(resultado > 18.6 && resultado < 24.9){
-        return("Seu IMC é "+ resultado.toFixed(2) +". Normal!, Tudo OK")
+    if (imc > 18.5 && imc <= 24.5){
+        alert("IMC Ok!")
     }
-    if(resultado > 25 && resultado < 29.9){
-        return("Seu IMC é "+ resultado.toFixed(2) +". Sobrepeso!, Fique atento.")
-    }
-    if(resultado > 30 && resultado < 34.9){
-        return("Seu IMC é "+ resultado.toFixed(2) +". Obesidade grau I!, Procure um médico")
-    }
-    if(resultado > 35 && resultado < 39.9){
-        return("Seu IMC é "+ resultado.toFixed(2) +". Obesidade grau II!, Procure um médico")
-    }
-    if(resultado > 40 ){
-        return("Seu IMC é "+ resultado.toFixed(2) +". Obesidade grau III!, Procure um médico")
-    } else {
-        return ("Valores inválidos")
+    if (imc > 24.5){
+        alert("Obesidade! Procure um médico/nutricionista.")
     }
 }
 
-alert(verIMC())
+//Utiliza a function
+descobreCategoria(imc)
